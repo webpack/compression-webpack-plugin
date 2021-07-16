@@ -1591,6 +1591,176 @@ exports[`CompressionPlugin should work with assets info: errors 1`] = `Array []`
 
 exports[`CompressionPlugin should work with assets info: warnings 1`] = `Array []`;
 
+exports[`CompressionPlugin should work with multiple plugins and using same filename and keep source maps: assets 1`] = `
+Array [
+  Array [
+    "/br/09a1a1112c577c2794359715edfcb5ac.png",
+    73329,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 73329,
+    },
+  ],
+  Array [
+    "/br/23fc1d3ac606d117e05a140e0de79806.svg",
+    363,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 363,
+    },
+  ],
+  Array [
+    "/br/async.async.js",
+    123,
+    Object {
+      "compressed": true,
+      "size": 123,
+    },
+  ],
+  Array [
+    "/br/main.js",
+    3465,
+    Object {
+      "compressed": true,
+      "size": 3465,
+    },
+  ],
+  Array [
+    "/br/main.js.map",
+    3578,
+    Object {
+      "compressed": true,
+      "size": 3578,
+    },
+  ],
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    73160,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 73160,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    393,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 393,
+    },
+  ],
+  Array [
+    "async.async.js",
+    134,
+    Object {
+      "compressed": true,
+      "size": 134,
+    },
+  ],
+  Array [
+    "main.js",
+    3969,
+    Object {
+      "compressed": true,
+      "size": 3969,
+    },
+  ],
+  Array [
+    "main.js.map",
+    4062,
+    Object {
+      "compressed": true,
+      "size": 4062,
+    },
+  ],
+]
+`;
+
+exports[`CompressionPlugin should work with multiple plugins and using same filename and keep source maps: errors 1`] = `Array []`;
+
+exports[`CompressionPlugin should work with multiple plugins and using same filename and keep source maps: warnings 1`] = `Array []`;
+
+exports[`CompressionPlugin should work with multiple plugins and using same filename: assets 1`] = `
+Array [
+  Array [
+    "/br/09a1a1112c577c2794359715edfcb5ac.png",
+    73329,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 73329,
+    },
+  ],
+  Array [
+    "/br/23fc1d3ac606d117e05a140e0de79806.svg",
+    363,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 363,
+    },
+  ],
+  Array [
+    "/br/async.async.js",
+    123,
+    Object {
+      "compressed": true,
+      "size": 123,
+    },
+  ],
+  Array [
+    "/br/main.js",
+    3442,
+    Object {
+      "compressed": true,
+      "size": 3442,
+    },
+  ],
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    73160,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 73160,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    393,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 393,
+    },
+  ],
+  Array [
+    "async.async.js",
+    134,
+    Object {
+      "compressed": true,
+      "size": 134,
+    },
+  ],
+  Array [
+    "main.js",
+    3946,
+    Object {
+      "compressed": true,
+      "size": 3946,
+    },
+  ],
+]
+`;
+
+exports[`CompressionPlugin should work with multiple plugins and using same filename: errors 1`] = `Array []`;
+
+exports[`CompressionPlugin should work with multiple plugins and using same filename: warnings 1`] = `Array []`;
+
 exports[`CompressionPlugin should work with multiple plugins: assets 1`] = `
 Array [
   Array [

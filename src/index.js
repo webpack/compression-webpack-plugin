@@ -272,10 +272,20 @@ class CompressionPlugin {
           }
 
           if (this.options.deleteOriginalAssets) {
-            if (this.options.deleteOriginalAssets === "keep-source-map") {
-              compilation.updateAsset(name, source, {
-                related: { sourceMap: null },
-              });
+            const needKeepSourceMap =
+              this.options.deleteOriginalAssets === "keep-source-map";
+            const isSameFilanem = name === newName;
+
+            if (needKeepSourceMap || isSameFilanem) {
+              const updatedAssetInfo = {};
+
+              if (isSameFilanem) {
+                updatedAssetInfo.related = null;
+              } else {
+                updatedAssetInfo.related = { sourceMap: null };
+              }
+
+              compilation.updateAsset(name, source, updatedAssetInfo);
             }
 
             compilation.deleteAsset(name);

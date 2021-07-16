@@ -412,6 +412,87 @@ describe("CompressionPlugin", () => {
     });
   });
 
+  it("should work with multiple plugins and using same filename", async () => {
+    const compiler = getCompiler(
+      "./entry.js",
+      {},
+      {
+        output: {
+          path: `${__dirname}/dist`,
+          filename: "[name].js",
+          chunkFilename: "[id].[name].js",
+        },
+      }
+    );
+
+    new CompressionPlugin({
+      algorithm: "brotliCompress",
+      filename: "[path]/br/[file]",
+      minRatio: Infinity,
+    }).apply(compiler);
+    new CompressionPlugin({
+      algorithm: "gzip",
+      filename: "[file]",
+      minRatio: Infinity,
+      deleteOriginalAssets: true,
+    }).apply(compiler);
+
+    await new Promise(async (resolve) => {
+      const newStats = await compile(compiler);
+
+      // expect(newStats.compilation.emittedAssets.size).toBe(8);
+
+      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
+        "assets"
+      );
+      expect(getWarnings(newStats)).toMatchSnapshot("errors");
+      expect(getErrors(newStats)).toMatchSnapshot("warnings");
+
+      resolve();
+    });
+  });
+
+  it("should work with multiple plugins and using same filename and keep source maps", async () => {
+    const compiler = getCompiler(
+      "./entry.js",
+      {},
+      {
+        devtool: "source-map",
+        output: {
+          path: `${__dirname}/dist`,
+          filename: "[name].js",
+          chunkFilename: "[id].[name].js",
+        },
+      }
+    );
+
+    new CompressionPlugin({
+      algorithm: "brotliCompress",
+      filename: "[path]/br/[file]",
+      minRatio: Infinity,
+    }).apply(compiler);
+    new CompressionPlugin({
+      algorithm: "gzip",
+      filename: "[file]",
+      minRatio: Infinity,
+      deleteOriginalAssets: "keep-source-map",
+    }).apply(compiler);
+
+    await new Promise(async (resolve) => {
+      const newStats = await compile(compiler);
+
+      // expect(newStats.compilation.emittedAssets.size).toBe(8);
+
+      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
+        "assets"
+      );
+      expect(getWarnings(newStats)).toMatchSnapshot("errors");
+      expect(getErrors(newStats)).toMatchSnapshot("warnings");
+
+      resolve();
+    });
+  });
+
   it('should work and do not use memory cache when the "cache" option is "false"', async () => {
     const compiler = getCompiler(
       "./entry.js",
