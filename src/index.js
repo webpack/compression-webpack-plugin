@@ -312,7 +312,7 @@ class CompressionPlugin {
               buffer = source.buffer();
             }
             // Compatibility with webpack plugins which don't use `webpack-sources`
-            // See https://github.com/webpack-contrib/compression-webpack-plugin/issues/236
+            // See https://github.com/webpack/compression-webpack-plugin/issues/236
             else {
               buffer = source.source();
 
