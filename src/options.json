@@ -38,7 +38,7 @@
   "properties": {
     "test": {
       "description": "Include all assets that pass test assertion.",
-      "link": "https://github.com/webpack-contrib/compression-webpack-plugin/#test",
+      "link": "https://github.com/webpack/compression-webpack-plugin/#test",
       "oneOf": [
         {
           "$ref": "#/definitions/Rules"
@@ -47,7 +47,7 @@
     },
     "include": {
       "description": "Include all assets matching any of these conditions.",
-      "link": "https://github.com/webpack-contrib/compression-webpack-plugin/#include",
+      "link": "https://github.com/webpack/compression-webpack-plugin/#include",
       "oneOf": [
         {
           "$ref": "#/definitions/Rules"
@@ -56,7 +56,7 @@
     },
     "exclude": {
       "description": "Exclude all assets matching any of these conditions.",
-      "link": "https://github.com/webpack-contrib/compression-webpack-plugin/#exclude",
+      "link": "https://github.com/webpack/compression-webpack-plugin/#exclude",
       "oneOf": [
         {
           "$ref": "#/definitions/Rules"
@@ -65,7 +65,7 @@
     },
     "algorithm": {
       "description": "The compression algorithm/function.",
-      "link": "https://github.com/webpack-contrib/compression-webpack-plugin/#algorithm",
+      "link": "https://github.com/webpack/compression-webpack-plugin/#algorithm",
       "anyOf": [
         {
           "type": "string"
@@ -77,23 +77,23 @@
     },
     "compressionOptions": {
       "description": "Compression options for `algorithm`.",
-      "link": "https://github.com/webpack-contrib/compression-webpack-plugin/#compressionoptions",
+      "link": "https://github.com/webpack/compression-webpack-plugin/#compressionoptions",
       "additionalProperties": true,
       "type": "object"
     },
     "threshold": {
       "description": "Only assets bigger than this size are processed. In bytes.",
-      "link": "https://github.com/webpack-contrib/compression-webpack-plugin/#threshold",
+      "link": "https://github.com/webpack/compression-webpack-plugin/#threshold",
       "type": "number"
     },
     "minRatio": {
       "description": "Only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`).",
-      "link": "https://github.com/webpack-contrib/compression-webpack-plugin/#minratio",
+      "link": "https://github.com/webpack/compression-webpack-plugin/#minratio",
       "type": "number"
     },
     "deleteOriginalAssets": {
       "description": "Whether to delete the original assets or not.",
-      "link": "https://github.com/webpack-contrib/compression-webpack-plugin/#deleteoriginalassets",
+      "link": "https://github.com/webpack/compression-webpack-plugin/#deleteoriginalassets",
       "anyOf": [
         {
           "type": "boolean"
@@ -108,7 +108,7 @@
     },
     "filename": {
       "description": "The target asset filename.",
-      "link": "https://github.com/webpack-contrib/compression-webpack-plugin/#filename",
+      "link": "https://github.com/webpack/compression-webpack-plugin/#filename",
       "anyOf": [
         {
           "type": "string"

@@ -5,7 +5,7 @@ exports[`validate options should throw an error on the "algorithm" option with "
  - options.algorithm should be one of these:
    string | function
    -> The compression algorithm/function.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#algorithm
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#algorithm
    Details:
     * options.algorithm should be a string.
     * options.algorithm should be an instance of function."
@@ -16,7 +16,7 @@ exports[`validate options should throw an error on the "compressionOptions" opti
  - options.compressionOptions should be an object:
    object { … }
    -> Compression options for \`algorithm\`.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#compressionoptions"
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#compressionoptions"
 `;
 
 exports[`validate options should throw an error on the "deleteOriginalAssets" option with "true" value 1`] = `
@@ -24,7 +24,7 @@ exports[`validate options should throw an error on the "deleteOriginalAssets" op
  - options.deleteOriginalAssets should be one of these:
    boolean | function | "keep-source-map"
    -> Whether to delete the original assets or not.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#deleteoriginalassets
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#deleteoriginalassets
    Details:
     * options.deleteOriginalAssets should be a boolean.
     * options.deleteOriginalAssets should be an instance of function.
@@ -36,7 +36,7 @@ exports[`validate options should throw an error on the "deleteOriginalAssets" op
  - options.deleteOriginalAssets should be one of these:
    boolean | function | "keep-source-map"
    -> Whether to delete the original assets or not.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#deleteoriginalassets
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#deleteoriginalassets
    Details:
     * options.deleteOriginalAssets should be a boolean.
     * options.deleteOriginalAssets should be an instance of function.
@@ -48,7 +48,7 @@ exports[`validate options should throw an error on the "exclude" option with "[{
  - options.exclude should be one of these:
    [RegExp | non-empty string, ...] | RegExp | non-empty string
    -> Filtering rules.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#exclude
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#exclude
    Details:
     * options.exclude[2] should be one of these:
       RegExp | non-empty string
@@ -63,7 +63,7 @@ exports[`validate options should throw an error on the "exclude" option with "[t
  - options.exclude should be one of these:
    [RegExp | non-empty string, ...] | RegExp | non-empty string
    -> Filtering rules.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#exclude
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#exclude
    Details:
     * options.exclude[0] should be one of these:
       RegExp | non-empty string
@@ -78,7 +78,7 @@ exports[`validate options should throw an error on the "exclude" option with "tr
  - options.exclude should be one of these:
    [RegExp | non-empty string, ...] | RegExp | non-empty string
    -> Filtering rules.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#exclude
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#exclude
    Details:
     * options.exclude should be an array:
       [RegExp | non-empty string, ...]
@@ -95,7 +95,7 @@ exports[`validate options should throw an error on the "filename" option with "t
  - options.filename should be one of these:
    string | function
    -> The target asset filename.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#filename
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#filename
    Details:
     * options.filename should be a string.
     * options.filename should be an instance of function."
@@ -106,7 +106,7 @@ exports[`validate options should throw an error on the "include" option with "[{
  - options.include should be one of these:
    [RegExp | non-empty string, ...] | RegExp | non-empty string
    -> Filtering rules.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#include
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#include
    Details:
     * options.include[2] should be one of these:
       RegExp | non-empty string
@@ -121,7 +121,7 @@ exports[`validate options should throw an error on the "include" option with "[t
  - options.include should be one of these:
    [RegExp | non-empty string, ...] | RegExp | non-empty string
    -> Filtering rules.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#include
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#include
    Details:
     * options.include[0] should be one of these:
       RegExp | non-empty string
@@ -136,7 +136,7 @@ exports[`validate options should throw an error on the "include" option with "tr
  - options.include should be one of these:
    [RegExp | non-empty string, ...] | RegExp | non-empty string
    -> Filtering rules.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#include
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#include
    Details:
     * options.include should be an array:
       [RegExp | non-empty string, ...]
@@ -152,7 +152,7 @@ exports[`validate options should throw an error on the "minRatio" option with "0
 "Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
  - options.minRatio should be a number.
    -> Only assets that compress better than this ratio are processed (\`minRatio = Compressed Size / Original Size\`).
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#minratio"
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#minratio"
 `;
 
 exports[`validate options should throw an error on the "test" option with "[{},"foo",true]" value 1`] = `
@@ -160,7 +160,7 @@ exports[`validate options should throw an error on the "test" option with "[{},"
  - options.test should be one of these:
    [RegExp | non-empty string, ...] | RegExp | non-empty string
    -> Filtering rules.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#test
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#test
    Details:
     * options.test[2] should be one of these:
       RegExp | non-empty string
@@ -175,7 +175,7 @@ exports[`validate options should throw an error on the "test" option with "[true
  - options.test should be one of these:
    [RegExp | non-empty string, ...] | RegExp | non-empty string
    -> Filtering rules.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#test
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#test
    Details:
     * options.test[0] should be one of these:
       RegExp | non-empty string
@@ -190,7 +190,7 @@ exports[`validate options should throw an error on the "test" option with "true"
  - options.test should be one of these:
    [RegExp | non-empty string, ...] | RegExp | non-empty string
    -> Filtering rules.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#test
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#test
    Details:
     * options.test should be an array:
       [RegExp | non-empty string, ...]
@@ -206,7 +206,7 @@ exports[`validate options should throw an error on the "threshold" option with "
 "Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
  - options.threshold should be a number.
    -> Only assets bigger than this size are processed. In bytes.
-   -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#threshold"
+   -> Read more at https://github.com/webpack/compression-webpack-plugin/#threshold"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "/test/" value 1`] = `

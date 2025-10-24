@@ -605,10 +605,10 @@ Please take a moment to read our contributing guidelines if you haven't yet done
 [npm-url]: https://npmjs.com/package/compression-webpack-plugin
 [node]: https://img.shields.io/node/v/compression-webpack-plugin.svg
 [node-url]: https://nodejs.org
-[tests]: https://github.com/webpack-contrib/compression-webpack-plugin/workflows/compression-webpack-plugin/badge.svg
-[tests-url]: https://github.com/webpack-contrib/compression-webpack-plugin/actions
-[cover]: https://codecov.io/gh/webpack-contrib/compression-webpack-plugin/branch/master/graph/badge.svg
-[cover-url]: https://codecov.io/gh/webpack-contrib/compression-webpack-plugin
+[tests]: https://github.com/webpack/compression-webpack-plugin/workflows/compression-webpack-plugin/badge.svg
+[tests-url]: https://github.com/webpack/compression-webpack-plugin/actions
+[cover]: https://codecov.io/gh/webpack/compression-webpack-plugin/branch/main/graph/badge.svg
+[cover-url]: https://codecov.io/gh/webpack/compression-webpack-plugin
 [discussion]: https://img.shields.io/github/discussions/webpack/webpack
 [discussion-url]: https://github.com/webpack/webpack/discussions
 [size]: https://packagephobia.now.sh/badge?p=compression-webpack-plugin
