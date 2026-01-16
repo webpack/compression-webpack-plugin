@@ -100,7 +100,7 @@ describe("CompressionPlugin", () => {
       },
     );
 
-    new CompressionPlugin().apply(compiler);
+    new CompressionPlugin({ parallel: false }).apply(compiler);
 
     const stats = await compile(compiler);
 

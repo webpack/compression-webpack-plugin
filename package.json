@@ -46,6 +46,7 @@
     "release": "standard-version"
   },
   "dependencies": {
+    "jest-worker": "^30.2.0",
     "schema-utils": "^4.2.0",
     "serialize-javascript": "^6.0.2"
   },
