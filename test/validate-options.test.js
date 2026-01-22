@@ -59,6 +59,10 @@ describe("validate options", () => {
       success: [true, false, "keep-source-map", () => true],
       failure: ["true", "unknown"],
     },
+    parallel: {
+      success: [true, false, 2],
+      failure: ["true", "2", {}],
+    },
     unknown: {
       success: [],
       failure: [1, true, false, "test", /test/, [], {}, { foo: "bar" }],

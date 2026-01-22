@@ -8,6 +8,7 @@ export = CompressionPlugin;
 /** @typedef {import("webpack").sources.Source} Source */
 /** @typedef {import("webpack").Asset} Asset */
 /** @typedef {import("webpack").WebpackError} WebpackError */
+/** @typedef {import("jest-worker").Worker} JestWorker */
 /**
  * @template T
  * @typedef {T | { valueOf(): T }} WithImplicitCoercion
@@ -17,6 +18,9 @@ export = CompressionPlugin;
 /** @typedef {any} EXPECTED_ANY */
 /**
  * @typedef {{ [key: string]: EXPECTED_ANY }} CustomOptions
+ */
+/**
+ * @typedef {JestWorker & { transform: (options: string) => Promise<{ compressedBase64: string }>, compress: (options: { inputBase64: string, algorithm: string, compressionOptions: object }) => Promise<{ compressedBase64: string }> }} CompressionWorker
  */
 /**
  * @template T
@@ -40,6 +44,9 @@ export = CompressionPlugin;
  * @typedef {boolean | "keep-source-map" | ((name: string) => boolean)} DeleteOriginalAssets
  */
 /**
+ * @typedef {undefined | boolean | number} Parallel
+ */
+/**
  * @template T
  * @typedef {object} BasePluginOptions
  * @property {Rules=} test include all assets that pass test assertion
@@ -49,6 +56,7 @@ export = CompressionPlugin;
  * @property {number=} minRatio only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`)
  * @property {DeleteOriginalAssets=} deleteOriginalAssets whether to delete the original assets or not
  * @property {Filename=} filename the target asset filename
+ * @property {Parallel=} parallel enables parallel compression
  */
 /**
  * @typedef {import("zlib").ZlibOptions} ZlibOptions
@@ -68,6 +76,12 @@ export = CompressionPlugin;
 declare class CompressionPlugin<T = import("zlib").ZlibOptions>
   implements WebpackPluginInstance
 {
+  /**
+   * @private
+   * @param {Parallel} parallel value of the `parallel` option
+   * @returns {number} number of cores for parallelism
+   */
+  private static getAvailableNumberOfCores;
   /**
    * @param {(BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>)=} options options
    */
@@ -97,6 +111,7 @@ declare class CompressionPlugin<T = import("zlib").ZlibOptions>
    * @param {Compiler} compiler compiler
    * @param {Compilation} compilation compilation
    * @param {Record<string, Source>} assets assets
+   * @param {{ availableNumberOfCores: number }} optimizeOptions optimize options
    * @returns {Promise<void>}
    */
   private compress;
@@ -117,16 +132,19 @@ declare namespace CompressionPlugin {
     Source,
     Asset,
     WebpackError,
+    JestWorker,
     WithImplicitCoercion,
     Rule,
     Rules,
     EXPECTED_ANY,
     CustomOptions,
+    CompressionWorker,
     InferDefaultType,
     CompressionOptions,
     AlgorithmFunction,
     Filename,
     DeleteOriginalAssets,
+    Parallel,
     BasePluginOptions,
     ZlibOptions,
     DefinedDefaultAlgorithmAndOptions,
@@ -142,6 +160,7 @@ type Compilation = import("webpack").Compilation;
 type Source = import("webpack").sources.Source;
 type Asset = import("webpack").Asset;
 type WebpackError = import("webpack").WebpackError;
+type JestWorker = import("jest-worker").Worker;
 type WithImplicitCoercion<T> =
   | T
   | {
@@ -152,6 +171,18 @@ type Rules = Rule[] | Rule;
 type EXPECTED_ANY = any;
 type CustomOptions = {
   [key: string]: EXPECTED_ANY;
+};
+type CompressionWorker = JestWorker & {
+  transform: (options: string) => Promise<{
+    compressedBase64: string;
+  }>;
+  compress: (options: {
+    inputBase64: string;
+    algorithm: string;
+    compressionOptions: CustomOptions;
+  }) => Promise<{
+    compressedBase64: string;
+  }>;
 };
 type InferDefaultType<T> = T extends infer U ? U : CustomOptions;
 type CompressionOptions<T> = InferDefaultType<T>;
@@ -176,6 +207,7 @@ type DeleteOriginalAssets =
   | boolean
   | "keep-source-map"
   | ((name: string) => boolean);
+type Parallel = undefined | boolean | number;
 type BasePluginOptions<T> = {
   /**
    * include all assets that pass test assertion
@@ -205,6 +237,10 @@ type BasePluginOptions<T> = {
    * the target asset filename
    */
   filename?: Filename | undefined;
+  /**
+   * enables parallel compression
+   */
+  parallel?: Parallel | undefined;
 };
 type ZlibOptions = import("zlib").ZlibOptions;
 type DefinedDefaultAlgorithmAndOptions<T> = T extends ZlibOptions

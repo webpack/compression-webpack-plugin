@@ -117,6 +117,18 @@
           "instanceof": "Function"
         }
       ]
+    },
+    "parallel": {
+      "description": "Use multi-process parallel running to improve the build speed.",
+      "link": "https://github.com/webpack/compression-webpack-plugin#parallel",
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "integer"
+        }
+      ]
     }
   }
 }
