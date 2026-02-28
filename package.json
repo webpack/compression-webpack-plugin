@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "schema-utils": "^4.2.0",
-    "serialize-javascript": "^6.0.2"
+    "serialize-javascript": "^7.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.8",
