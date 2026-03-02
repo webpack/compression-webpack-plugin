@@ -81,9 +81,8 @@ describe("CompressionPlugin", () => {
               test: /number\.js$/i,
               rules: [
                 {
-                  loader: require.resolve(
-                    "./helpers/loader-with-child-compilation.js",
-                  ),
+                  loader:
+                    require.resolve("./helpers/loader-with-child-compilation.js"),
                 },
               ],
             },

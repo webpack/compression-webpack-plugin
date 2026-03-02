@@ -46,7 +46,7 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js",
-    194,
+    182,
     {
       "chunkhash": "55e6e9a872bcc7d4b226",
       "immutable": true,
@@ -54,38 +54,38 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
       "related": {
         "gzipped": "async.async.55e6e9a872bcc7d4b226.js.gz",
       },
-      "size": 194,
+      "size": 182,
     },
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    136,
+    130,
     {
       "compressed": true,
       "immutable": true,
-      "size": 136,
+      "size": 130,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js",
-    16252,
+    "main.46d06887b61d39060e44.js",
+    16424,
     {
-      "chunkhash": "4d75ca3dcb0ac1fb976b",
+      "chunkhash": "46d06887b61d39060e44",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.4d75ca3dcb0ac1fb976b.js.gz",
+        "gzipped": "main.46d06887b61d39060e44.js.gz",
       },
-      "size": 16252,
+      "size": 16424,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js.gz",
-    4097,
+    "main.46d06887b61d39060e44.js.gz",
+    4141,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4097,
+      "size": 4141,
     },
   ],
 ]
@@ -141,7 +141,7 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js",
-    194,
+    182,
     {
       "chunkhash": "55e6e9a872bcc7d4b226",
       "immutable": true,
@@ -149,38 +149,38 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
       "related": {
         "gzipped": "async.async.55e6e9a872bcc7d4b226.js.gz",
       },
-      "size": 194,
+      "size": 182,
     },
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    136,
+    130,
     {
       "compressed": true,
       "immutable": true,
-      "size": 136,
+      "size": 130,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js",
-    16252,
+    "main.46d06887b61d39060e44.js",
+    16424,
     {
-      "chunkhash": "4d75ca3dcb0ac1fb976b",
+      "chunkhash": "46d06887b61d39060e44",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.4d75ca3dcb0ac1fb976b.js.gz",
+        "gzipped": "main.46d06887b61d39060e44.js.gz",
       },
-      "size": 16252,
+      "size": 16424,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js.gz",
-    4097,
+    "main.46d06887b61d39060e44.js.gz",
+    4141,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4097,
+      "size": 4141,
     },
   ],
 ]
@@ -224,7 +224,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js",
-    194,
+    182,
     {
       "chunkhash": "55e6e9a872bcc7d4b226",
       "immutable": true,
@@ -232,38 +232,38 @@ exports[`"compressionOptions" option set default compression level to maximum fo
       "related": {
         "brotliCompressed": "async.async.55e6e9a872bcc7d4b226.js.br",
       },
-      "size": 194,
+      "size": 182,
     },
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.br",
-    123,
+    134,
     {
       "compressed": true,
       "immutable": true,
-      "size": 123,
+      "size": 134,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js",
-    16252,
+    "main.46d06887b61d39060e44.js",
+    16424,
     {
-      "chunkhash": "4d75ca3dcb0ac1fb976b",
+      "chunkhash": "46d06887b61d39060e44",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "brotliCompressed": "main.4d75ca3dcb0ac1fb976b.js.br",
+        "brotliCompressed": "main.46d06887b61d39060e44.js.br",
       },
-      "size": 16252,
+      "size": 16424,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js.br",
-    3578,
+    "main.46d06887b61d39060e44.js.br",
+    3611,
     {
       "compressed": true,
       "immutable": true,
-      "size": 3578,
+      "size": 3611,
     },
   ],
 ]
@@ -307,7 +307,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js",
-    194,
+    182,
     {
       "chunkhash": "55e6e9a872bcc7d4b226",
       "immutable": true,
@@ -315,38 +315,38 @@ exports[`"compressionOptions" option set default compression level to maximum fo
       "related": {
         "deflateed": "async.async.55e6e9a872bcc7d4b226.js.gz",
       },
-      "size": 194,
+      "size": 182,
     },
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    124,
+    118,
     {
       "compressed": true,
       "immutable": true,
-      "size": 124,
+      "size": 118,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js",
-    16252,
+    "main.46d06887b61d39060e44.js",
+    16424,
     {
-      "chunkhash": "4d75ca3dcb0ac1fb976b",
+      "chunkhash": "46d06887b61d39060e44",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "deflateed": "main.4d75ca3dcb0ac1fb976b.js.gz",
+        "deflateed": "main.46d06887b61d39060e44.js.gz",
       },
-      "size": 16252,
+      "size": 16424,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js.gz",
-    4085,
+    "main.46d06887b61d39060e44.js.gz",
+    4129,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4085,
+      "size": 4129,
     },
   ],
 ]
@@ -390,7 +390,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js",
-    194,
+    182,
     {
       "chunkhash": "55e6e9a872bcc7d4b226",
       "immutable": true,
@@ -398,38 +398,38 @@ exports[`"compressionOptions" option set default compression level to maximum fo
       "related": {
         "deflateRawed": "async.async.55e6e9a872bcc7d4b226.js.gz",
       },
-      "size": 194,
+      "size": 182,
     },
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    118,
+    112,
     {
       "compressed": true,
       "immutable": true,
-      "size": 118,
+      "size": 112,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js",
-    16252,
+    "main.46d06887b61d39060e44.js",
+    16424,
     {
-      "chunkhash": "4d75ca3dcb0ac1fb976b",
+      "chunkhash": "46d06887b61d39060e44",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "deflateRawed": "main.4d75ca3dcb0ac1fb976b.js.gz",
+        "deflateRawed": "main.46d06887b61d39060e44.js.gz",
       },
-      "size": 16252,
+      "size": 16424,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js.gz",
-    4079,
+    "main.46d06887b61d39060e44.js.gz",
+    4123,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4079,
+      "size": 4123,
     },
   ],
 ]
@@ -473,7 +473,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js",
-    194,
+    182,
     {
       "chunkhash": "55e6e9a872bcc7d4b226",
       "immutable": true,
@@ -481,38 +481,38 @@ exports[`"compressionOptions" option set default compression level to maximum fo
       "related": {
         "gzipped": "async.async.55e6e9a872bcc7d4b226.js.gz",
       },
-      "size": 194,
+      "size": 182,
     },
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    136,
+    130,
     {
       "compressed": true,
       "immutable": true,
-      "size": 136,
+      "size": 130,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js",
-    16252,
+    "main.46d06887b61d39060e44.js",
+    16424,
     {
-      "chunkhash": "4d75ca3dcb0ac1fb976b",
+      "chunkhash": "46d06887b61d39060e44",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.4d75ca3dcb0ac1fb976b.js.gz",
+        "gzipped": "main.46d06887b61d39060e44.js.gz",
       },
-      "size": 16252,
+      "size": 16424,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js.gz",
-    4097,
+    "main.46d06887b61d39060e44.js.gz",
+    4141,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4097,
+      "size": 4141,
     },
   ],
 ]

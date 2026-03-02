@@ -65,9 +65,9 @@ export = CompressionPlugin;
  * @template [T=ZlibOptions]
  * @implements WebpackPluginInstance
  */
-declare class CompressionPlugin<T = import("zlib").ZlibOptions>
-  implements WebpackPluginInstance
-{
+declare class CompressionPlugin<
+  T = import("zlib").ZlibOptions,
+> implements WebpackPluginInstance {
   /**
    * @param {(BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>)=} options options
    */
