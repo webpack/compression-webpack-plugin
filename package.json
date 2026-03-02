@@ -1,6 +1,6 @@
 {
   "name": "compression-webpack-plugin",
-  "version": "11.1.0",
+  "version": "12.0.0",
   "description": "Prepare compressed versions of assets to serve them with Content-Encoding",
   "keywords": [
     "webpack"
@@ -82,6 +82,6 @@
     "webpack": "^5.1.0"
   },
   "engines": {
-    "node": ">= 18.12.0"
+    "node": ">= 20.9.0"
   }
 }
