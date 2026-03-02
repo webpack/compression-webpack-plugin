@@ -46,7 +46,7 @@ exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): asse
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js",
-    194,
+    182,
     {
       "chunkhash": "55e6e9a872bcc7d4b226",
       "immutable": true,
@@ -54,38 +54,38 @@ exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): asse
       "related": {
         "gzipped": "async.async.55e6e9a872bcc7d4b226.js.gz",
       },
-      "size": 194,
+      "size": 182,
     },
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    136,
+    130,
     {
       "compressed": true,
       "immutable": true,
-      "size": 136,
+      "size": 130,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js",
-    16252,
+    "main.46d06887b61d39060e44.js",
+    16424,
     {
-      "chunkhash": "4d75ca3dcb0ac1fb976b",
+      "chunkhash": "46d06887b61d39060e44",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.4d75ca3dcb0ac1fb976b.js.gz",
+        "gzipped": "main.46d06887b61d39060e44.js.gz",
       },
-      "size": 16252,
+      "size": 16424,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js.gz",
-    4097,
+    "main.46d06887b61d39060e44.js.gz",
+    4141,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4097,
+      "size": 4141,
     },
   ],
 ]
@@ -143,7 +143,7 @@ exports[`"algorithm" option matches snapshot for custom function ({Function}): a
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js",
-    194,
+    182,
     {
       "chunkhash": "55e6e9a872bcc7d4b226",
       "immutable": true,
@@ -151,38 +151,38 @@ exports[`"algorithm" option matches snapshot for custom function ({Function}): a
       "related": {
         "gzed": "async.async.55e6e9a872bcc7d4b226.js.gz",
       },
-      "size": 194,
+      "size": 182,
     },
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    194,
+    182,
     {
       "compressed": true,
       "immutable": true,
-      "size": 194,
+      "size": 182,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js",
-    16252,
+    "main.46d06887b61d39060e44.js",
+    16424,
     {
-      "chunkhash": "4d75ca3dcb0ac1fb976b",
+      "chunkhash": "46d06887b61d39060e44",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzed": "main.4d75ca3dcb0ac1fb976b.js.gz",
+        "gzed": "main.46d06887b61d39060e44.js.gz",
       },
-      "size": 16252,
+      "size": 16424,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js.gz",
-    16252,
+    "main.46d06887b61d39060e44.js.gz",
+    16424,
     {
       "compressed": true,
       "immutable": true,
-      "size": 16252,
+      "size": 16424,
     },
   ],
 ]
@@ -222,22 +222,22 @@ exports[`"algorithm" option matches snapshot for custom function with error ({Fu
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js",
-    194,
+    182,
     {
       "chunkhash": "55e6e9a872bcc7d4b226",
       "immutable": true,
       "javascriptModule": false,
-      "size": 194,
+      "size": 182,
     },
   ],
   [
-    "main.4d75ca3dcb0ac1fb976b.js",
-    16252,
+    "main.46d06887b61d39060e44.js",
+    16424,
     {
-      "chunkhash": "4d75ca3dcb0ac1fb976b",
+      "chunkhash": "46d06887b61d39060e44",
       "immutable": true,
       "javascriptModule": false,
-      "size": 16252,
+      "size": 16424,
     },
   ],
 ]

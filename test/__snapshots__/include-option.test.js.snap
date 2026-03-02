@@ -22,46 +22,46 @@ exports[`"include" option matches snapshot for a single \`include\` value ({RegE
   ],
   [
     "async.async.js.gz",
-    136,
+    130,
     {
       "compressed": true,
       "immutable": true,
-      "size": 136,
+      "size": 130,
     },
   ],
   [
-    "async.async.js?ver=8bb94238bc82ebe7567e",
-    194,
+    "async.async.js?ver=0a3603151466d755fdc9",
+    182,
     {
-      "fullhash": "8bb94238bc82ebe7567e",
+      "fullhash": "0a3603151466d755fdc9",
       "immutable": true,
       "javascriptModule": false,
       "related": {
         "gzipped": "async.async.js.gz",
       },
-      "size": 194,
+      "size": 182,
     },
   ],
   [
     "main.js.gz",
-    4124,
+    4168,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4124,
+      "size": 4168,
     },
   ],
   [
-    "main.js?var=8bb94238bc82ebe7567e",
-    16413,
+    "main.js?var=0a3603151466d755fdc9",
+    16585,
     {
-      "fullhash": "8bb94238bc82ebe7567e",
+      "fullhash": "0a3603151466d755fdc9",
       "immutable": true,
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16413,
+      "size": 16585,
     },
   ],
 ]
@@ -105,46 +105,46 @@ exports[`"include" option matches snapshot for multiple \`include\` values ({Arr
   ],
   [
     "async.async.js.gz",
-    136,
+    130,
     {
       "compressed": true,
       "immutable": true,
-      "size": 136,
+      "size": 130,
     },
   ],
   [
-    "async.async.js?ver=8bb94238bc82ebe7567e",
-    194,
+    "async.async.js?ver=0a3603151466d755fdc9",
+    182,
     {
-      "fullhash": "8bb94238bc82ebe7567e",
+      "fullhash": "0a3603151466d755fdc9",
       "immutable": true,
       "javascriptModule": false,
       "related": {
         "gzipped": "async.async.js.gz",
       },
-      "size": 194,
+      "size": 182,
     },
   ],
   [
     "main.js.gz",
-    4124,
+    4168,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4124,
+      "size": 4168,
     },
   ],
   [
-    "main.js?var=8bb94238bc82ebe7567e",
-    16413,
+    "main.js?var=0a3603151466d755fdc9",
+    16585,
     {
-      "fullhash": "8bb94238bc82ebe7567e",
+      "fullhash": "0a3603151466d755fdc9",
       "immutable": true,
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16413,
+      "size": 16585,
     },
   ],
 ]
