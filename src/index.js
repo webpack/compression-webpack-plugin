@@ -206,11 +206,7 @@ class CompressionPlugin {
             return;
           }
 
-          if (!Buffer.isBuffer(result)) {
-            resolve(Buffer.from(/** @type {string} */ (result)));
-          } else {
-            resolve(result);
-          }
+          resolve(Buffer.from(/** @type {Buffer} */ (result)));
         },
       );
     });
