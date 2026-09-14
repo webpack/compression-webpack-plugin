@@ -1,67 +1,11 @@
 export = CompressionPlugin;
-/** @typedef {import("schema-utils/declarations/validate").Schema} Schema */
-/** @typedef {import("webpack").AssetInfo} AssetInfo */
-/** @typedef {import("webpack").Compiler} Compiler */
-/** @typedef {import("webpack").PathData} PathData */
-/** @typedef {import("webpack").WebpackPluginInstance} WebpackPluginInstance */
-/** @typedef {import("webpack").Compilation} Compilation */
-/** @typedef {import("webpack").sources.Source} Source */
-/** @typedef {import("webpack").Asset} Asset */
-/** @typedef {import("webpack").WebpackError} WebpackError */
 /**
- * @template T
- * @typedef {T | { valueOf(): T }} WithImplicitCoercion
- */
-/** @typedef {RegExp | string} Rule */
-/** @typedef {Rule[] | Rule} Rules */
-/** @typedef {any} EXPECTED_ANY */
-/**
- * @typedef {{ [key: string]: EXPECTED_ANY }} CustomOptions
- */
-/**
- * @template T
- * @typedef {T extends infer U ? U : CustomOptions} InferDefaultType
- */
-/**
- * @template T
- * @typedef {InferDefaultType<T>} CompressionOptions
- */
-/**
- * @template T
- * @callback AlgorithmFunction
- * @param {Buffer} input
- * @param {CompressionOptions<T>} options
- * @param {(error: Error | null | undefined, result: WithImplicitCoercion<ArrayBuffer | SharedArrayBuffer> | Uint8Array | ReadonlyArray<number> | WithImplicitCoercion<Uint8Array | ReadonlyArray<number> | string> | WithImplicitCoercion<string> | { [Symbol.toPrimitive](hint: 'string'): string }) => void} callback
- */
-/**
- * @typedef {string | ((fileData: PathData) => string)} Filename
- */
-/**
- * @typedef {boolean | "keep-source-map" | ((name: string) => boolean)} DeleteOriginalAssets
- */
-/**
- * @template T
- * @typedef {object} BasePluginOptions
- * @property {Rules=} test include all assets that pass test assertion
- * @property {Rules=} include include all assets matching any of these conditions
- * @property {Rules=} exclude exclude all assets matching any of these conditions
- * @property {number=} threshold only assets bigger than this size are processed, in bytes
- * @property {number=} minRatio only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`)
- * @property {DeleteOriginalAssets=} deleteOriginalAssets whether to delete the original assets or not
- * @property {Filename=} filename the target asset filename
- */
-/**
- * @typedef {import("zlib").ZlibOptions} ZlibOptions
- */
-/**
- * @template T
- * @typedef {T extends ZlibOptions ? { algorithm?: string | AlgorithmFunction<T> | undefined, compressionOptions?: CompressionOptions<T> | undefined } : { algorithm: string | AlgorithmFunction<T>, compressionOptions?: CompressionOptions<T> | undefined }} DefinedDefaultAlgorithmAndOptions
- */
-/**
- * @template T
- * @typedef {BasePluginOptions<T> & { algorithm: string | AlgorithmFunction<T>, compressionOptions: CompressionOptions<T>, threshold: number, minRatio: number, deleteOriginalAssets: DeleteOriginalAssets, filename: Filename }} InternalPluginOptions
- */
-/**
+ * Prepare compressed versions of assets to serve them with `Content-Encoding`.
+ *
+ * One `minimizer-webpack-plugin` asset generator does the work: compressing is
+ * re-encoding an asset and writing the result beside it, which is what that
+ * plugin's `generate` describes, so both halves of the common
+ * minify-then-compress setup share one pass of filtering and one cache.
  * @template [T=ZlibOptions]
  * @implements WebpackPluginInstance
  */
@@ -82,24 +26,23 @@ declare class CompressionPlugin<
    */
   private options;
   /**
+   * The key the compressed file is recorded under on the asset it came from,
+   * which is how a dev server finds it and how an asset that already has one
+   * is declined.
    * @private
-   * @type {AlgorithmFunction<T>}
+   * @returns {string} the key
    */
-  private algorithm;
+  private relatedName;
   /**
+   * What the compressed asset says about itself. It is another encoding of the
+   * bytes rather than another version of the asset, so it inherits nothing the
+   * original said — only its immutability, and only where the name it was
+   * given still derives from the original's.
    * @private
-   * @param {Buffer} input input
-   * @returns {Promise<Buffer>} compressed buffer
+   * @param {AssetInfo} info what the asset it was read from says
+   * @returns {AssetInfo} what the compressed one says
    */
-  private runCompressionAlgorithm;
-  /**
-   * @private
-   * @param {Compiler} compiler compiler
-   * @param {Compilation} compilation compilation
-   * @param {Record<string, Source>} assets assets
-   * @returns {Promise<void>}
-   */
-  private compress;
+  private assetInfo;
   /**
    * @param {Compiler} compiler compiler
    * @returns {void}

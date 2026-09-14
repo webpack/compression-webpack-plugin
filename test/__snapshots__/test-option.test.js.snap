@@ -19,6 +19,7 @@ exports[`"test" option matches snapshot for a single \`test\` value ({RegExp}): 
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -78,6 +79,7 @@ exports[`"test" option matches snapshot for multiple \`test\` values ({Array<Reg
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -99,6 +101,7 @@ exports[`"test" option matches snapshot for multiple \`test\` values ({Array<Reg
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
     },
@@ -149,6 +152,7 @@ exports[`"test" option matches snapshot with empty \`test\` value: assets 1`] = 
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -170,6 +174,7 @@ exports[`"test" option matches snapshot with empty \`test\` value: assets 1`] = 
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
     },
@@ -179,6 +184,7 @@ exports[`"test" option matches snapshot with empty \`test\` value: assets 1`] = 
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -201,6 +207,7 @@ exports[`"test" option matches snapshot with empty \`test\` value: assets 1`] = 
     4168,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4168,
     },

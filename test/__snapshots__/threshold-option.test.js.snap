@@ -19,6 +19,7 @@ exports[`"threshold" option matches snapshot for \`0\` value ({Number}): assets 
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -40,6 +41,7 @@ exports[`"threshold" option matches snapshot for \`0\` value ({Number}): assets 
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
     },
@@ -62,6 +64,7 @@ exports[`"threshold" option matches snapshot for \`0\` value ({Number}): assets 
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -84,6 +87,7 @@ exports[`"threshold" option matches snapshot for \`0\` value ({Number}): assets 
     4141,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4141,
     },
@@ -114,6 +118,7 @@ exports[`"threshold" option matches snapshot for \`8192\` value ({Number}): asse
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -155,6 +160,7 @@ exports[`"threshold" option matches snapshot for \`8192\` value ({Number}): asse
     4141,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4141,
     },
@@ -195,6 +201,7 @@ exports[`"threshold" option should compress all assets excluding assets with "0"
     1663,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 1663,
     },
@@ -225,6 +232,7 @@ exports[`"threshold" option should compress all assets including assets with "0"
     20,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 20,
     },
@@ -247,6 +255,7 @@ exports[`"threshold" option should compress all assets including assets with "0"
     1663,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 1663,
     },

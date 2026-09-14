@@ -49,6 +49,20 @@ module.exports = {
 
 Finally, run `webpack` using the method you normally use (e.g., via CLI or an npm script).
 
+> **Note**
+>
+> The compressing itself is an asset generator of
+> [`minimizer-webpack-plugin`](https://github.com/webpack/minimizer-webpack-plugin),
+> which this plugin configures. Minifying and compressing are the same shape of
+> work — read an asset's bytes, write bytes beside it — separated only by when
+> they run, so the two halves of the usual setup share one pass of filtering and
+> one cache. Nothing here changes: every option below is this plugin's own.
+>
+> Where you already run `MinimizerPlugin`, you can skip this plugin and write
+> the generator yourself — see its
+> [`generate`](https://github.com/webpack/minimizer-webpack-plugin#generate)
+> option and the `zlibCompress` generator it ships.
+
 ## Options
 
 - **[`test`](#test)**
@@ -452,6 +466,18 @@ module.exports = {
   ],
 };
 ```
+
+## Asset info
+
+A compressed file carries `compressed: true`, and `generated: true` from the
+generator that wrote it. The asset it came from records it under
+`info.related`, keyed by the algorithm — `gzipped` for gzip, `brotliCompressed`
+for brotli — which is how a dev server finds the compressed form of an asset.
+
+Naming the file it read, with `filename: "[path][base]"`, writes the compressed
+bytes **over** the original rather than beside it: the server, not the URL, then
+says what the encoding is. There is no original left in that case, so
+[`deleteOriginalAssets`](#deleteoriginalassets) has nothing to act on.
 
 ## Examples
 

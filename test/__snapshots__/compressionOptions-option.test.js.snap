@@ -19,6 +19,7 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -40,6 +41,7 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
     },
@@ -62,6 +64,7 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -84,6 +87,7 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
     4141,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4141,
     },
@@ -114,6 +118,7 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -135,6 +140,7 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
     },
@@ -157,6 +163,7 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -179,6 +186,7 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
     4141,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4141,
     },
@@ -218,6 +226,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     363,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 363,
     },
@@ -240,6 +249,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     134,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 134,
     },
@@ -262,6 +272,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     3611,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 3611,
     },
@@ -301,6 +312,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     378,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 378,
     },
@@ -323,6 +335,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     118,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 118,
     },
@@ -345,6 +358,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     4129,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4129,
     },
@@ -384,6 +398,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     372,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 372,
     },
@@ -406,6 +421,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     112,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 112,
     },
@@ -428,6 +444,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     4123,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4123,
     },
@@ -467,6 +484,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
     },
@@ -489,6 +507,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -511,6 +530,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     4141,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4141,
     },

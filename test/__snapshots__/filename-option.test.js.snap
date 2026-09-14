@@ -19,6 +19,7 @@ exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.g
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -28,6 +29,7 @@ exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.g
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
     },
@@ -62,6 +64,7 @@ exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.g
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -84,6 +87,7 @@ exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.g
     4168,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4168,
     },
@@ -114,6 +118,7 @@ exports[`"filename" option matches snapshot for \`[path][base].super-compressed.
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -135,6 +140,7 @@ exports[`"filename" option matches snapshot for \`[path][base].super-compressed.
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
     },
@@ -144,6 +150,7 @@ exports[`"filename" option matches snapshot for \`[path][base].super-compressed.
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -166,6 +173,7 @@ exports[`"filename" option matches snapshot for \`[path][base].super-compressed.
     4187,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4187,
     },
@@ -209,6 +217,7 @@ exports[`"filename" option matches snapshot for custom function ({Function}) and
     78117,
     {
       "compressed": true,
+      "generated": true,
       "size": 78117,
     },
   ],
@@ -229,6 +238,7 @@ exports[`"filename" option matches snapshot for custom function ({Function}) and
     672,
     {
       "compressed": true,
+      "generated": true,
       "size": 672,
     },
   ],
@@ -237,6 +247,7 @@ exports[`"filename" option matches snapshot for custom function ({Function}) and
     182,
     {
       "compressed": true,
+      "generated": true,
       "size": 182,
     },
   ],
@@ -258,6 +269,7 @@ exports[`"filename" option matches snapshot for custom function ({Function}) and
     16590,
     {
       "compressed": true,
+      "generated": true,
       "size": 16590,
     },
   ],
@@ -300,6 +312,7 @@ exports[`"filename" option matches snapshot for custom function ({Function}): as
     73507,
     {
       "compressed": true,
+      "generated": true,
       "size": 73507,
     },
   ],
@@ -320,6 +333,7 @@ exports[`"filename" option matches snapshot for custom function ({Function}): as
     390,
     {
       "compressed": true,
+      "generated": true,
       "size": 390,
     },
   ],
@@ -328,6 +342,7 @@ exports[`"filename" option matches snapshot for custom function ({Function}): as
     130,
     {
       "compressed": true,
+      "generated": true,
       "size": 130,
     },
   ],
@@ -349,6 +364,7 @@ exports[`"filename" option matches snapshot for custom function ({Function}): as
     4172,
     {
       "compressed": true,
+      "generated": true,
       "size": 4172,
     },
   ],
@@ -391,6 +407,7 @@ exports[`"filename" option show work: assets 1`] = `
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -412,6 +429,7 @@ exports[`"filename" option show work: assets 1`] = `
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
     },
@@ -421,6 +439,7 @@ exports[`"filename" option show work: assets 1`] = `
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -443,6 +462,7 @@ exports[`"filename" option show work: assets 1`] = `
     4189,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4189,
     },

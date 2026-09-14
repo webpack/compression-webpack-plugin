@@ -19,6 +19,7 @@ exports[`"exclude" option matches snapshot for a single \`exclude\` value ({RegE
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -37,6 +38,7 @@ exports[`"exclude" option matches snapshot for a single \`exclude\` value ({RegE
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -59,6 +61,7 @@ exports[`"exclude" option matches snapshot for a single \`exclude\` value ({RegE
     4168,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4168,
     },
@@ -108,6 +111,7 @@ exports[`"exclude" option matches snapshot for multiple \`exclude\` values ({Arr
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -130,6 +134,7 @@ exports[`"exclude" option matches snapshot for multiple \`exclude\` values ({Arr
     4168,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4168,
     },

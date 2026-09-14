@@ -19,6 +19,7 @@ exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): asse
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -40,6 +41,7 @@ exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): asse
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
     },
@@ -62,6 +64,7 @@ exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): asse
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -84,6 +87,7 @@ exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): asse
     4141,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4141,
     },
@@ -116,6 +120,7 @@ exports[`"algorithm" option matches snapshot for custom function ({Function}): a
     78117,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 78117,
     },
@@ -137,6 +142,7 @@ exports[`"algorithm" option matches snapshot for custom function ({Function}): a
     672,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 672,
     },
@@ -159,6 +165,7 @@ exports[`"algorithm" option matches snapshot for custom function ({Function}): a
     182,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 182,
     },
@@ -181,6 +188,7 @@ exports[`"algorithm" option matches snapshot for custom function ({Function}): a
     16424,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 16424,
     },
@@ -253,10 +261,14 @@ exports[`"algorithm" option matches snapshot for custom function with error ({Fu
 
 exports[`"algorithm" option matches snapshot for custom function with error ({Function}): errors 1`] = `
 [
-  "Error",
-  "Error",
-  "Error",
-  "Error",
+  "Error: 09a1a1112c577c2794359715edfcb5ac.png from Compression plugin
+Error",
+  "Error: 23fc1d3ac606d117e05a140e0de79806.svg from Compression plugin
+Error",
+  "Error: async.async.55e6e9a872bcc7d4b226.js from Compression plugin
+Error",
+  "Error: main.46d06887b61d39060e44.js from Compression plugin
+Error",
 ]
 `;
 

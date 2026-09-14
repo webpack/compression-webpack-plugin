@@ -16,16 +16,21 @@ exports[`"deleteOriginalAssets" option should delete original assets and keep so
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
+      "sourceFilename": "icon.svg",
     },
   ],
   [
     "async.async.5ea58b5a4311bcf28d3b.js",
     130,
     {
+      "chunkhash": "5ea58b5a4311bcf28d3b",
       "compressed": true,
+      "generated": true,
       "immutable": true,
+      "javascriptModule": false,
       "size": 130,
     },
   ],
@@ -33,8 +38,14 @@ exports[`"deleteOriginalAssets" option should delete original assets and keep so
     "main.b8b33f53ef8b50b15de2.js",
     4187,
     {
+      "chunkhash": "b8b33f53ef8b50b15de2",
       "compressed": true,
+      "generated": true,
       "immutable": true,
+      "javascriptModule": false,
+      "related": {
+        "sourceMap": "main.b8b33f53ef8b50b15de2.js.map",
+      },
       "size": 4187,
     },
   ],
@@ -69,6 +80,7 @@ exports[`"deleteOriginalAssets" option should work and delete original assets wh
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -87,6 +99,7 @@ exports[`"deleteOriginalAssets" option should work and delete original assets wh
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
     },
@@ -96,6 +109,7 @@ exports[`"deleteOriginalAssets" option should work and delete original assets wh
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -105,6 +119,7 @@ exports[`"deleteOriginalAssets" option should work and delete original assets wh
     4141,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4141,
     },
@@ -123,6 +138,7 @@ exports[`"deleteOriginalAssets" option should work and delete original assets: a
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -132,6 +148,7 @@ exports[`"deleteOriginalAssets" option should work and delete original assets: a
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
     },
@@ -141,6 +158,7 @@ exports[`"deleteOriginalAssets" option should work and delete original assets: a
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -150,6 +168,7 @@ exports[`"deleteOriginalAssets" option should work and delete original assets: a
     4141,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4141,
     },
@@ -177,16 +196,21 @@ exports[`"deleteOriginalAssets" option should work and do not report errors on d
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
+      "sourceFilename": "icon.svg",
     },
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js",
     130,
     {
+      "chunkhash": "55e6e9a872bcc7d4b226",
       "compressed": true,
+      "generated": true,
       "immutable": true,
+      "javascriptModule": false,
       "size": 130,
     },
   ],
@@ -194,8 +218,11 @@ exports[`"deleteOriginalAssets" option should work and do not report errors on d
     "main.46d06887b61d39060e44.js",
     4141,
     {
+      "chunkhash": "46d06887b61d39060e44",
       "compressed": true,
+      "generated": true,
       "immutable": true,
+      "javascriptModule": false,
       "size": 4141,
     },
   ],
@@ -234,6 +261,7 @@ exports[`"deleteOriginalAssets" option should work and keep original assets by d
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
     },
@@ -256,6 +284,7 @@ exports[`"deleteOriginalAssets" option should work and keep original assets by d
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -278,6 +307,7 @@ exports[`"deleteOriginalAssets" option should work and keep original assets by d
     4141,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4141,
     },
@@ -308,6 +338,7 @@ exports[`"deleteOriginalAssets" option should work and keep original assets: ass
     73507,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 73507,
     },
@@ -329,6 +360,7 @@ exports[`"deleteOriginalAssets" option should work and keep original assets: ass
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
     },
@@ -351,6 +383,7 @@ exports[`"deleteOriginalAssets" option should work and keep original assets: ass
     130,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 130,
     },
@@ -373,6 +406,7 @@ exports[`"deleteOriginalAssets" option should work and keep original assets: ass
     4141,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 4141,
     },
@@ -400,16 +434,21 @@ exports[`"deleteOriginalAssets" option should work and report errors on duplicat
     390,
     {
       "compressed": true,
+      "generated": true,
       "immutable": true,
       "size": 390,
+      "sourceFilename": "icon.svg",
     },
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js",
     130,
     {
+      "chunkhash": "55e6e9a872bcc7d4b226",
       "compressed": true,
+      "generated": true,
       "immutable": true,
+      "javascriptModule": false,
       "size": 130,
     },
   ],
@@ -417,20 +456,17 @@ exports[`"deleteOriginalAssets" option should work and report errors on duplicat
     "main.46d06887b61d39060e44.js",
     4141,
     {
+      "chunkhash": "46d06887b61d39060e44",
       "compressed": true,
+      "generated": true,
       "immutable": true,
+      "javascriptModule": false,
       "size": 4141,
     },
   ],
 ]
 `;
 
-exports[`"deleteOriginalAssets" option should work and report errors on duplicate assets: errors 1`] = `
-[
-  "Error: Conflict: Multiple assets emit different content to the same filename 23fc1d3ac606d117e05a140e0de79806.svg",
-  "Error: Conflict: Multiple assets emit different content to the same filename async.async.55e6e9a872bcc7d4b226.js",
-  "Error: Conflict: Multiple assets emit different content to the same filename main.46d06887b61d39060e44.js",
-]
-`;
+exports[`"deleteOriginalAssets" option should work and report errors on duplicate assets: errors 1`] = `[]`;
 
 exports[`"deleteOriginalAssets" option should work and report errors on duplicate assets: warnings 1`] = `[]`;

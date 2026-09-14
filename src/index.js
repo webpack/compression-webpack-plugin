@@ -6,6 +6,7 @@
 const crypto = require("node:crypto");
 const path = require("node:path");
 
+const MinimizerPlugin = require("minimizer-webpack-plugin");
 const { validate } = require("schema-utils");
 const serialize = require("serialize-javascript");
 
@@ -88,7 +89,15 @@ const schema = require("./options.json");
  * @typedef {BasePluginOptions<T> & { algorithm: string | AlgorithmFunction<T>, compressionOptions: CompressionOptions<T>, threshold: number, minRatio: number, deleteOriginalAssets: DeleteOriginalAssets, filename: Filename }} InternalPluginOptions
  */
 
+const IMMUTABLE_NAME_REGEXP = /(\[name]|\[base]|\[file])/;
+
 /**
+ * Prepare compressed versions of assets to serve them with `Content-Encoding`.
+ *
+ * One `minimizer-webpack-plugin` asset generator does the work: compressing is
+ * re-encoding an asset and writing the result beside it, which is what that
+ * plugin's `generate` describes, so both halves of the common
+ * minify-then-compress setup share one pass of filtering and one cache.
  * @template [T=ZlibOptions]
  * @implements WebpackPluginInstance
  */
@@ -132,284 +141,75 @@ class CompressionPlugin {
       deleteOriginalAssets,
     };
 
-    /**
-     * @private
-     * @type {AlgorithmFunction<T>}
-     */
-    this.algorithm =
-      /** @type {AlgorithmFunction<T>} */
-      (this.options.algorithm);
-
-    if (typeof this.algorithm === "string") {
+    // Resolved here rather than at compress time so a name `zlib` does not have
+    // is a configuration error, reported where the plugin was written.
+    if (typeof algorithm === "string") {
       /**
        * @type {typeof import("zlib")}
        */
-
       const zlib = require("node:zlib");
 
-      /**
-       * @private
-       * @type {AlgorithmFunction<T>}
-       */
-      this.algorithm = zlib[this.algorithm];
-
-      if (!this.algorithm) {
-        throw new Error(
-          `Algorithm "${this.options.algorithm}" is not found in "zlib"`,
-        );
+      if (
+        typeof zlib[/** @type {keyof typeof zlib} */ (algorithm)] !== "function"
+      ) {
+        throw new Error(`Algorithm "${algorithm}" is not found in "zlib"`);
       }
-
-      const defaultCompressionOptions =
-        {
-          gzip: {
-            level: zlib.constants.Z_BEST_COMPRESSION,
-          },
-          deflate: {
-            level: zlib.constants.Z_BEST_COMPRESSION,
-          },
-          deflateRaw: {
-            level: zlib.constants.Z_BEST_COMPRESSION,
-          },
-          brotliCompress: {
-            params: {
-              [zlib.constants.BROTLI_PARAM_QUALITY]:
-                zlib.constants.BROTLI_MAX_QUALITY,
-            },
-          },
-        }[/** @type {string} */ (algorithm)] || {};
-
-      this.options.compressionOptions =
-        /**
-         * @type {CompressionOptions<T>}
-         */
-        ({
-          ...defaultCompressionOptions,
-          .../** @type {CustomOptions} */ (this.options.compressionOptions),
-        });
     }
   }
 
   /**
+   * The key the compressed file is recorded under on the asset it came from,
+   * which is how a dev server finds it and how an asset that already has one
+   * is declined.
    * @private
-   * @param {Buffer} input input
-   * @returns {Promise<Buffer>} compressed buffer
+   * @returns {string} the key
    */
-  runCompressionAlgorithm(input) {
-    return new Promise((resolve, reject) => {
-      this.algorithm(
-        input,
-        this.options.compressionOptions,
-        (error, result) => {
-          if (error) {
-            reject(error);
+  relatedName() {
+    const { algorithm, filename } = this.options;
 
-            return;
-          }
+    if (typeof algorithm !== "function") {
+      return algorithm === "gzip" ? "gzipped" : `${algorithm}ed`;
+    }
 
-          if (!Buffer.isBuffer(result)) {
-            resolve(Buffer.from(/** @type {string} */ (result)));
-          } else {
-            resolve(result);
-          }
-        },
-      );
-    });
+    if (typeof filename === "function") {
+      return `compression-function-${crypto
+        .createHash("md5")
+        .update(serialize(filename))
+        .digest("hex")}`;
+    }
+
+    const queryIndex = filename.indexOf("?");
+    const withoutQuery =
+      queryIndex >= 0 ? filename.slice(0, queryIndex) : filename;
+
+    return `${path.extname(withoutQuery).slice(1)}ed`;
   }
 
   /**
+   * What the compressed asset says about itself. It is another encoding of the
+   * bytes rather than another version of the asset, so it inherits nothing the
+   * original said — only its immutability, and only where the name it was
+   * given still derives from the original's.
    * @private
-   * @param {Compiler} compiler compiler
-   * @param {Compilation} compilation compilation
-   * @param {Record<string, Source>} assets assets
-   * @returns {Promise<void>}
+   * @param {AssetInfo} info what the asset it was read from says
+   * @returns {AssetInfo} what the compressed one says
    */
-  async compress(compiler, compilation, assets) {
-    const cache = compilation.getCache("CompressionWebpackPlugin");
+  assetInfo(info) {
+    const { filename } = this.options;
+    /** @type {AssetInfo} */
+    const compressed = { compressed: true };
 
-    /**
-     * @typedef {object} AssetForCompression
-     * @property {string} name name
-     * @property {Source} source source
-     * @property {{ source: Source, compressed: Buffer }} output output
-     * @property {AssetInfo} info asset info
-     * @property {Buffer} buffer buffer
-     * @property {ReturnType<ReturnType<Compilation["getCache"]>["getItemCache"]>} cacheItem cache item
-     * @property {string} relatedName related name
-     */
-
-    const assetsForCompression = (
-      await Promise.all(
-        Object.keys(assets).map(async (name) => {
-          const { info, source } =
-            /** @type {Asset} */
-            (compilation.getAsset(name));
-
-          if (info.compressed) {
-            return false;
-          }
-
-          if (
-            !compiler.webpack.ModuleFilenameHelpers.matchObject.bind(
-              undefined,
-              this.options,
-            )(name)
-          ) {
-            return false;
-          }
-
-          /**
-           * @type {string | undefined}
-           */
-          let relatedName;
-
-          if (typeof this.options.algorithm === "function") {
-            if (typeof this.options.filename === "function") {
-              relatedName = `compression-function-${crypto
-                .createHash("md5")
-                .update(serialize(this.options.filename))
-                .digest("hex")}`;
-            } else {
-              /**
-               * @type {string}
-               */
-              let filenameForRelatedName = this.options.filename;
-
-              const index = filenameForRelatedName.indexOf("?");
-
-              if (index >= 0) {
-                filenameForRelatedName = filenameForRelatedName.slice(0, index);
-              }
-
-              relatedName = `${path
-                .extname(filenameForRelatedName)
-                .slice(1)}ed`;
-            }
-          } else if (this.options.algorithm === "gzip") {
-            relatedName = "gzipped";
-          } else {
-            relatedName = `${this.options.algorithm}ed`;
-          }
-
-          if (info.related && info.related[relatedName]) {
-            return false;
-          }
-
-          const cacheItem = cache.getItemCache(
-            serialize({
-              name,
-              algorithm: this.options.algorithm,
-              compressionOptions: this.options.compressionOptions,
-            }),
-            cache.getLazyHashedEtag(source),
-          );
-          const output = (await cacheItem.getPromise()) || {};
-
-          let buffer;
-
-          // No need original buffer for cached files
-          if (!output.source) {
-            if (typeof source.buffer === "function") {
-              buffer = source.buffer();
-            }
-            // Compatibility with webpack plugins which don't use `webpack-sources`
-            // See https://github.com/webpack/compression-webpack-plugin/issues/236
-            else {
-              buffer = source.source();
-
-              if (!Buffer.isBuffer(buffer)) {
-                buffer = Buffer.from(buffer);
-              }
-            }
-
-            if (buffer.length < this.options.threshold) {
-              return false;
-            }
-          }
-
-          return { name, source, info, buffer, output, cacheItem, relatedName };
-        }),
-      )
-    ).filter(Boolean);
-
-    const { RawSource } = compiler.webpack.sources;
-    const scheduledTasks = [];
-
-    for (const asset of assetsForCompression) {
-      scheduledTasks.push(
-        (async () => {
-          const { name, source, buffer, output, cacheItem, info, relatedName } =
-            /** @type {AssetForCompression} */
-            (asset);
-
-          if (!output.source) {
-            if (!output.compressed) {
-              try {
-                output.compressed = await this.runCompressionAlgorithm(buffer);
-              } catch (error) {
-                compilation.errors.push(/** @type {WebpackError} */ (error));
-
-                return;
-              }
-            }
-
-            if (
-              output.compressed.length / buffer.length >
-              this.options.minRatio
-            ) {
-              await cacheItem.storePromise({ compressed: output.compressed });
-
-              return;
-            }
-
-            output.source = new RawSource(output.compressed);
-
-            await cacheItem.storePromise(output);
-          }
-
-          const newFilename = compilation.getPath(this.options.filename, {
-            filename: name,
-          });
-          /** @type {AssetInfo} */
-          const newInfo = { compressed: true };
-
-          // TODO: possible problem when developer uses custom function, ideally we need to get parts of filename (i.e. name/base/ext/etc) in info
-          // otherwise we can't detect an asset as immutable
-          if (
-            info.immutable &&
-            typeof this.options.filename === "string" &&
-            /(\[name]|\[base]|\[file])/.test(this.options.filename)
-          ) {
-            newInfo.immutable = true;
-          }
-
-          if (this.options.deleteOriginalAssets) {
-            if (this.options.deleteOriginalAssets === "keep-source-map") {
-              compilation.updateAsset(name, source, {
-                related: { sourceMap: null },
-              });
-
-              compilation.deleteAsset(name);
-            } else if (
-              typeof this.options.deleteOriginalAssets === "function"
-            ) {
-              if (this.options.deleteOriginalAssets(name)) {
-                compilation.deleteAsset(name);
-              }
-            } else {
-              compilation.deleteAsset(name);
-            }
-          } else {
-            compilation.updateAsset(name, source, {
-              related: { [relatedName]: newFilename },
-            });
-          }
-
-          compilation.emitAsset(newFilename, output.source, newInfo);
-        })(),
-      );
+    // TODO: possible problem when developer uses custom function, ideally we need to get parts of filename (i.e. name/base/ext/etc) in info
+    // otherwise we can't detect an asset as immutable
+    if (
+      info.immutable &&
+      typeof filename === "string" &&
+      IMMUTABLE_NAME_REGEXP.test(filename)
+    ) {
+      compressed.immutable = true;
     }
 
-    await Promise.all(scheduledTasks);
+    return compressed;
   }
 
   /**
@@ -418,18 +218,34 @@ class CompressionPlugin {
    */
   apply(compiler) {
     const pluginName = this.constructor.name;
+    const { test, include, exclude, algorithm, compressionOptions } =
+      this.options;
 
-    compiler.hooks.thisCompilation.tap(pluginName, (compilation) => {
-      compilation.hooks.processAssets.tapPromise(
-        {
-          name: pluginName,
-          stage:
-            compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
-          additionalAssets: true,
-        },
-        (assets) => this.compress(compiler, compilation, assets),
-      );
+    new MinimizerPlugin({
+      test,
+      include,
+      exclude,
+      // Nothing here minifies: the whole job is the generator below.
+      minify: false,
+      label: "Compression plugin",
+      generate: {
+        implementation: MinimizerPlugin.zlibCompress,
+        options: { algorithm, compressionOptions },
+        type: "asset",
+        // Compressing reads the bytes a user downloads, so it runs after every
+        // minimizer has had its say.
+        stage:
+          compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
+        filename: this.options.filename,
+        threshold: this.options.threshold,
+        minRatio: this.options.minRatio,
+        deleteOriginalAssets: this.options.deleteOriginalAssets,
+        relatedName: this.relatedName(),
+        assetInfo: (/** @type {AssetInfo} */ info) => this.assetInfo(info),
+      },
+    }).apply(compiler);
 
+    compiler.hooks.compilation.tap(pluginName, (compilation) => {
       compilation.hooks.statsPrinter.tap(pluginName, (stats) => {
         stats.hooks.print
           .for("asset.info.compressed")
