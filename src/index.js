@@ -227,7 +227,6 @@ class CompressionPlugin {
       exclude,
       // Nothing here minifies: the whole job is the generator below.
       minify: false,
-      label: "Compression plugin",
       generate: {
         implementation: MinimizerPlugin.zlibCompress,
         options: { algorithm, compressionOptions },
