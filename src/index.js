@@ -228,7 +228,7 @@ class CompressionPlugin {
       // Nothing here minifies: the whole job is the generator below.
       minify: false,
       generate: {
-        implementation: MinimizerPlugin.zlibCompress,
+        implementation: MinimizerPlugin.compress,
         options: { algorithm, compressionOptions },
         type: "asset",
         // Compressing reads the bytes a user downloads, so it runs after every
