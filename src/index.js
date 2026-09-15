@@ -240,14 +240,13 @@ class CompressionPlugin {
     // or differently encoded, and `minimizer-webpack-plugin` already does it.
     // What stays here is what compression means by it.
     new MinimizerPlugin({
-      // Every asset, where nothing said which: the `.js` default belongs to
-      // minifying JavaScript, and compression is offered whatever is emitted.
-      test: typeof test === "undefined" ? /[\s\S]/ : test,
+      test,
       include,
       exclude,
-      minify: {
+      generate: {
         implementation: MinimizerPlugin.compress,
         options: { algorithm, compressionOptions },
+        type: "asset",
         filename,
         threshold,
         minRatio,
