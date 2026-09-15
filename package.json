@@ -46,6 +46,7 @@
     "release": "standard-version"
   },
   "dependencies": {
+    "minimizer-webpack-plugin": "^5.11.0",
     "schema-utils": "^4.2.0",
     "serialize-javascript": "^7.0.3"
   },
