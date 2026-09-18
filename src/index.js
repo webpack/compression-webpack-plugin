@@ -250,10 +250,12 @@ class CompressionPlugin {
         filename,
         threshold,
         minRatio,
+        // The generator deletes the file it read and nothing its `related`
+        // names, so keeping the source map is what `true` already does.
         deleteOriginalAssets:
-          typeof deleteOriginalAssets === "boolean"
-            ? deleteOriginalAssets
-            : undefined,
+          deleteOriginalAssets === "keep-source-map"
+            ? true
+            : deleteOriginalAssets,
         relatedName: this.relatedName(),
       },
     }).apply(compiler);
