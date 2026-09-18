@@ -15,6 +15,82 @@
 
 Prepare compressed versions of assets to serve them with Content-Encoding.
 
+> [!WARNING]
+>
+> **This plugin is deprecated.** Compression now ships with
+> [`minimizer-webpack-plugin`](https://github.com/webpack/minimizer-webpack-plugin#compress),
+> which reads, writes, caches and schedules assets for every kind of transform,
+> so minifying and compressing are one plugin over one pass and one cache. It
+> also fixes two long-standing bugs here — deleting an original no longer takes
+> the files named in its `related` info, so a second compression instance keeps
+> its output ([#245](https://github.com/webpack/compression-webpack-plugin/issues/245),
+> [#389](https://github.com/webpack/compression-webpack-plugin/issues/389)) —
+> and runs the work in a worker pool
+> ([#408](https://github.com/webpack/compression-webpack-plugin/issues/408)).
+>
+> See [Migrating](#migrating) below.
+
+## Migrating
+
+`minimizer-webpack-plugin` compresses through an `asset` generator, which writes
+the compressed file beside the one it read. Every option here has a home there:
+
+```js
+const MinimizerPlugin = require("minimizer-webpack-plugin");
+
+module.exports = {
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new MinimizerPlugin({
+        test: /\.(js|css|html|svg)$/i,
+        generate: {
+          implementation: MinimizerPlugin.compress,
+          options: { algorithm: "gzip", compressionOptions: { level: 9 } },
+          type: "asset",
+          filename: "[path][base].gz",
+          threshold: 10240,
+          minRatio: 0.8,
+          relatedName: "gzipped",
+          deleteOriginalAssets: false,
+        },
+      }),
+    ],
+  },
+};
+```
+
+| `compression-webpack-plugin`                        | `minimizer-webpack-plugin`            |
+| :-------------------------------------------------- | :------------------------------------ |
+| `test` / `include` / `exclude`                      | the same, on the plugin               |
+| `algorithm`                                         | `generate.options.algorithm`          |
+| `compressionOptions`                                | `generate.options.compressionOptions` |
+| `filename`                                          | `generate.filename`                   |
+| `threshold`                                         | `generate.threshold`                  |
+| `minRatio`                                          | `generate.minRatio`                   |
+| `deleteOriginalAssets`                              | `generate.deleteOriginalAssets`       |
+| the `gzipped` / `brotliCompressed` key in `related` | `generate.relatedName`                |
+
+That instance minifies as well, since `minify` defaults to terser. To compress
+and change nothing, say so with an empty list of minimizers — and state `test`,
+whose `.js` default belongs to minifying:
+
+```js
+new MinimizerPlugin({
+  test: /.*/,
+  minify: [],
+  generate: {
+    implementation: MinimizerPlugin.compress,
+    options: { algorithm: "gzip" },
+    type: "asset",
+    filename: "[path][base].gz",
+  },
+});
+```
+
+Two algorithms are two named generators rather than two plugins — see
+[Compressing with minifying, and without](https://github.com/webpack/minimizer-webpack-plugin#compressing-with-minifying-and-without).
+
 ## Getting Started
 
 To begin, you'll need to install `compression-webpack-plugin`:
