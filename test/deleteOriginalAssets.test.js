@@ -124,6 +124,8 @@ describe('"deleteOriginalAssets" option', () => {
 
     expect(brotli.length).toBeGreaterThan(0);
     expect(gzipped).toHaveLength(brotli.length);
+    // Or nothing deleting anything would satisfy the two above.
+    expect(names.some((name) => name.endsWith(".js"))).toBe(false);
     expect(getErrors(stats)).toEqual([]);
     expect(getWarnings(stats)).toEqual([]);
   });
