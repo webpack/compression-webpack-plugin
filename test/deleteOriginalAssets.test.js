@@ -101,6 +101,33 @@ describe('"deleteOriginalAssets" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("should keep what a second instance wrote beside the deleted asset", async () => {
+    compiler = getCompiler("./entry.js");
+
+    new CompressionPlugin({
+      algorithm: "brotliCompress",
+      filename: "[path][base].br",
+    }).apply(compiler);
+    new CompressionPlugin({
+      algorithm: "gzip",
+      filename: "[path][base].gz",
+      deleteOriginalAssets: true,
+    }).apply(compiler);
+
+    const stats = await compile(compiler);
+    const names = Object.keys(stats.compilation.assets);
+
+    // Deleting an asset takes everything its `related` names with it, so the
+    // one deleting second must not take the first one's file too.
+    const brotli = names.filter((name) => name.endsWith(".br"));
+    const gzipped = names.filter((name) => name.endsWith(".gz"));
+
+    expect(brotli.length).toBeGreaterThan(0);
+    expect(gzipped).toHaveLength(brotli.length);
+    expect(getErrors(stats)).toEqual([]);
+    expect(getWarnings(stats)).toEqual([]);
+  });
+
   it('should delete original assets and keep source maps with option "keep-source-map"', async () => {
     compiler = getCompiler(
       "./entry.js",
