@@ -72,7 +72,7 @@ describe('"deleteOriginalAssets" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should work and report errors on duplicate assets", async () => {
+  it("should work and write over the original where the filename is its own", async () => {
     compiler = getCompiler("./entry.js");
 
     new CompressionPlugin({

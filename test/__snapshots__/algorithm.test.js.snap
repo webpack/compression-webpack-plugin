@@ -253,10 +253,14 @@ exports[`"algorithm" option matches snapshot for custom function with error ({Fu
 
 exports[`"algorithm" option matches snapshot for custom function with error ({Function}): errors 1`] = `
 [
-  "Error",
-  "Error",
-  "Error",
-  "Error",
+  "Error: 09a1a1112c577c2794359715edfcb5ac.png from minimizer-webpack-plugin
+Error",
+  "Error: 23fc1d3ac606d117e05a140e0de79806.svg from minimizer-webpack-plugin
+Error",
+  "Error: async.async.55e6e9a872bcc7d4b226.js from minimizer-webpack-plugin
+Error",
+  "Error: main.46d06887b61d39060e44.js from minimizer-webpack-plugin
+Error",
 ]
 `;
 

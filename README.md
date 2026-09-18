@@ -320,7 +320,9 @@ type filename = string | ((pathdata: PathData) => string);
 
 Default: `"[path][base].gz"`
 
-The target asset filename.
+The target asset filename. A name that comes out as the original's own replaces
+that asset with its compressed bytes, rather than writing a second file beside
+it.
 
 #### `string`
 
@@ -393,7 +395,7 @@ Determines whether the original (uncompressed) assets should be deleted after co
 
 - `"keep-source-map"` is what `true` already does, and is kept for compatibility.
 
-- If a function is provided, it will be called with each asset’s name and should return `true` to delete the asset or `false` to keep it.
+- If a function is provided, it will be called with each asset’s name and should return `true` to delete the asset or `false` to keep it. An asset it keeps records the compressed file in its `related` info, the same as when nothing is deleted.
 
 Example:
 

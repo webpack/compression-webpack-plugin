@@ -60,6 +60,9 @@ exports[`"deleteOriginalAssets" option should work and delete original assets wh
     78117,
     {
       "immutable": true,
+      "related": {
+        "gzipped": "09a1a1112c577c2794359715edfcb5ac.png.gz",
+      },
       "size": 78117,
       "sourceFilename": "icon.png",
     },
@@ -78,6 +81,9 @@ exports[`"deleteOriginalAssets" option should work and delete original assets wh
     672,
     {
       "immutable": true,
+      "related": {
+        "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+      },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
@@ -384,7 +390,7 @@ exports[`"deleteOriginalAssets" option should work and keep original assets: err
 
 exports[`"deleteOriginalAssets" option should work and keep original assets: warnings 1`] = `[]`;
 
-exports[`"deleteOriginalAssets" option should work and report errors on duplicate assets: assets 1`] = `
+exports[`"deleteOriginalAssets" option should work and write over the original where the filename is its own: assets 1`] = `
 [
   [
     "09a1a1112c577c2794359715edfcb5ac.png",
@@ -425,12 +431,6 @@ exports[`"deleteOriginalAssets" option should work and report errors on duplicat
 ]
 `;
 
-exports[`"deleteOriginalAssets" option should work and report errors on duplicate assets: errors 1`] = `
-[
-  "Error: Conflict: Multiple assets emit different content to the same filename 23fc1d3ac606d117e05a140e0de79806.svg",
-  "Error: Conflict: Multiple assets emit different content to the same filename async.async.55e6e9a872bcc7d4b226.js",
-  "Error: Conflict: Multiple assets emit different content to the same filename main.46d06887b61d39060e44.js",
-]
-`;
+exports[`"deleteOriginalAssets" option should work and write over the original where the filename is its own: errors 1`] = `[]`;
 
-exports[`"deleteOriginalAssets" option should work and report errors on duplicate assets: warnings 1`] = `[]`;
+exports[`"deleteOriginalAssets" option should work and write over the original where the filename is its own: warnings 1`] = `[]`;

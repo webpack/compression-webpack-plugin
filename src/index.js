@@ -240,9 +240,13 @@ class CompressionPlugin {
     // or differently encoded, and `minimizer-webpack-plugin` already does it.
     // What stays here is what compression means by it.
     new MinimizerPlugin({
-      test,
+      // Every asset unless told otherwise, where the engine's own default is
+      // the JavaScript one belongs to minifying.
+      test: typeof test === "undefined" ? /.*/ : test,
       include,
       exclude,
+      // This plugin compresses what a build emitted and changes none of it.
+      minify: [],
       generate: {
         implementation: MinimizerPlugin.compress,
         options: { algorithm, compressionOptions },
