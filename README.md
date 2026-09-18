@@ -389,7 +389,7 @@ Default: `false`
 
 Determines whether the original (uncompressed) assets should be deleted after compression.
 
-- If set to `true` , all original assets will be deleted. Only the compressed asset's own file goes: a source map, or a file another compression plugin wrote beside it, is kept.
+- If set to `true` , all original assets will be deleted — each original file and nothing else. Its source map, and a file another compression plugin wrote beside it, are kept.
 
 - `"keep-source-map"` is what `true` already does, and is kept for compatibility.
 
