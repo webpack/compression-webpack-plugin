@@ -20,20 +20,26 @@ Prepare compressed versions of assets to serve them with Content-Encoding.
 > **This plugin is deprecated.** Compression now ships with
 > [`minimizer-webpack-plugin`](https://github.com/webpack/minimizer-webpack-plugin#compress),
 > which reads, writes, caches and schedules assets for every kind of transform,
-> so minifying and compressing are one plugin over one pass and one cache. It
-> also fixes two long-standing bugs here — deleting an original no longer takes
-> the files named in its `related` info, so a second compression instance keeps
-> its output ([#245](https://github.com/webpack/compression-webpack-plugin/issues/245),
-> [#389](https://github.com/webpack/compression-webpack-plugin/issues/389)) —
-> and runs the work in a worker pool
-> ([#408](https://github.com/webpack/compression-webpack-plugin/issues/408)).
+> so minifying and compressing are one plugin over one pass and one cache. From
+> **5.11.0** it also fixes two long-standing bugs here: deleting an original
+> takes that file alone, so the source map and a second compression instance's
+> output both survive
+> ([#245](https://github.com/webpack/compression-webpack-plugin/issues/245),
+> [#389](https://github.com/webpack/compression-webpack-plugin/issues/389)).
 >
 > See [Migrating](#migrating) below.
 
 ## Migrating
 
 `minimizer-webpack-plugin` compresses through an `asset` generator, which writes
-the compressed file beside the one it read. Every option here has a home there:
+the compressed file beside the one it read. Install it first — this package does
+not depend on it:
+
+```console
+npm install minimizer-webpack-plugin --save-dev
+```
+
+Every option here has a home there, from **5.11.0** onwards:
 
 ```js
 const MinimizerPlugin = require("minimizer-webpack-plugin");
@@ -70,6 +76,12 @@ module.exports = {
 | `minRatio`                                          | `generate.minRatio`                   |
 | `deleteOriginalAssets`                              | `generate.deleteOriginalAssets`       |
 | the `gzipped` / `brotliCompressed` key in `related` | `generate.relatedName`                |
+
+`filename` and `deleteOriginalAssets` take a function there from 5.11.0, and
+`deleteOriginalAssets: true` keeps the source map, so `"keep-source-map"` is
+what `true` does rather than a value to carry over. On 5.10.x both are what
+they were — a string and a boolean — and deleting an original takes the files
+named in its `related` info with it.
 
 That instance minifies as well, since `minify` defaults to terser. To compress
 and change nothing, say so with an empty list of minimizers — and state `test`,
