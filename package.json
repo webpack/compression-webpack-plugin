@@ -1,7 +1,7 @@
 {
   "name": "compression-webpack-plugin",
   "version": "12.0.0",
-  "description": "Prepare compressed versions of assets to serve them with Content-Encoding",
+  "description": "Deprecated - use minimizer-webpack-plugin instead. Prepare compressed versions of assets to serve them with Content-Encoding",
   "keywords": [
     "webpack"
   ],
